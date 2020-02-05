@@ -1,0 +1,40 @@
+.wrapper {
+    width: 80%;
+    height: 80%;
+    border: 2px solid black;
+    margin: 5% auto;
+}
+#decoded {
+    width: 400px;
+    height: 150px;
+    border: 1px solid black;
+}
+#encoded {
+    width: 400px;
+    height: 150px;
+    border: 1px solid black;
+}
+#password {
+    width: 300px;
+    border: 1px solid black;
+    margin-right: 4px;
+}
+label {
+    padding: 5px;
+    width: 30%;
+    margin-left: 15%;
+}
+h2 {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+.btn-arrow {
+    background-color: white;
+    color: black;
+    margin: 0 3px;
+}
+.formGroup {
+    display: flex;
+    margin: 10px auto;
+}
