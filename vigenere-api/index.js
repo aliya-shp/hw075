@@ -12,16 +12,16 @@ const urlencoded = bodyParser.urlencoded({extended: false});
 app.use(cors());
 app.use(express.json());
 
-app.post('./encode', urlencoded, (req, res) => {
-    console.log(req.body);
+app.post('/encode', urlencoded, (req, res) => {
     if (!req.body) return res.sendStatus(400);
-    console.log(req.params);
-    res.send(Vigenere.Cipher(password).crypt(req.params.encoded));
+    console.log('encode', req.body);
+    res.send(Vigenere.Cipher(req.params.password).crypt(req.params.encoded));
 });
 
-app.post('./decode', urlencoded, (req, res) => {
+app.post('/decode', urlencoded, (req, res) => {
     if (!req.body) return res.sendStatus(400);
-    res.send(Vigenere.Decipher(password).crypt(req.params.decoded));
+    console.log('decode', req.body);
+    res.send(Vigenere.Decipher(req.params.password).crypt(req.params.decoded));
 });
 
 app.listen(port, () => {

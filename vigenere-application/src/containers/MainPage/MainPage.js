@@ -55,7 +55,7 @@ class MainPage extends Component {
                         <FormGroup className="formGroup">
                             <Label for="password">Password</Label>
                             <Input
-                                type="password"
+                                type="text"
                                 name="password"
                                 id="password"
                                 required
@@ -64,13 +64,13 @@ class MainPage extends Component {
                             />
                             <Button
                                 className="btn-arrow"
-                                onClick={(e) => this.props.encode(e)}
+                                onClick={(e) => this.encode(e)}
                             >
                                 <FaArrowDown />
                             </Button>
                             <Button
                                 className="btn-arrow"
-                                onClick={(e) => this.props.decode(e)}
+                                onClick={(e) => this.decode(e)}
                             >
                                 <FaArrowUp />
                             </Button>

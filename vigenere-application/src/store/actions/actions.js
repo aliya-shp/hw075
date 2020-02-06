@@ -12,11 +12,11 @@ export const UPDATE_ENCODED_MESSAGE = 'UPDATE_ENCODED_MESSAGE';
 export const UPDATE_DECODED_MESSAGE = 'UPDATE_DECODED_MESSAGE';
 
 export const encodeRequest = () => ({type: ENCODE_MESSAGE_REQUEST});
-export const encodeSuccess = message => ({type: ENCODE_MESSAGE_SUCCESS, message});
+export const encodeSuccess = encoded => ({type: ENCODE_MESSAGE_SUCCESS, encoded});
 export const encodeFailure = error => ({type: ENCODE_MESSAGE_FAILURE});
 
 export const decodeRequest = () => ({type: DECODE_MESSAGE_REQUEST});
-export const decodeSuccess = message => ({type: DECODE_MESSAGE_SUCCESS, message});
+export const decodeSuccess = decoded => ({type: DECODE_MESSAGE_SUCCESS, decoded});
 export const decodeFailure = error => ({type: DECODE_MESSAGE_FAILURE});
 
 export const updateEncodedMessage = value => ({type: UPDATE_ENCODED_MESSAGE, value});
@@ -27,8 +27,8 @@ export const decodeMessage = data => {
         dispatch(decodeRequest());
 
         try {
-            const response = await axiosVigenere.post('./decode', data);
-            dispatch(decodeSuccess(response.data.decoded));
+            const response = await axiosVigenere.post('/decode', data);
+            dispatch(decodeSuccess(response.data));
         } catch (e) {
             dispatch(decodeFailure(e));
         }
@@ -40,8 +40,8 @@ export const encodeMessage = data => {
         dispatch(encodeRequest());
 
         try {
-            const response = await axiosVigenere.post('./encode', data);
-            dispatch(encodeSuccess(response.data.encoded));
+            const response = await axiosVigenere.post('/encode', data);
+            dispatch(encodeSuccess(response.data));
         } catch (e) {
             dispatch(encodeFailure());
         }
